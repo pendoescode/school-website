@@ -26,26 +26,6 @@ const Header = () => {
 						</button>
 					</li>
 				</ul>
-				{/* <DropdownMenu>
-						<DropdownMenuTrigger asChild>
-							<Button variant="outline" aria-label="Menu">
-								<Menu />
-							</Button>
-						</DropdownMenuTrigger>
-						<DropdownMenuContent className="w-auto">
-							{navigationItems.map((item, index) => {
-								const pathname = usePathname();
-								const isActive = pathname === item.href;
-								return (
-									<Link href={item.href as any} passHref>
-										<DropdownMenuItem className="flex items-center gap-2">
-											<span>{item.text}</span>
-										</DropdownMenuItem>
-									</Link>
-								);
-							})}
-						</DropdownMenuContent>
-					</DropdownMenu> */}
 			</li>
 			<li className="relative order-1 hidden w-max items-center gap-5 place-self-center rounded px-5 py-2.5 before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:rounded-[4px] before:backdrop-blur lg:flex lg:bg-gray-600 lg:bg-opacity-[0.35]">
 				{navigationItems.map((item, index) => {
