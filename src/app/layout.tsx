@@ -1,0 +1,47 @@
+"use client";
+
+import { Analytics } from "@vercel/analytics/react";
+import dynamic from "next/dynamic";
+import { Provider as BalancerProvider } from "react-wrap-balancer";
+
+import Layout from ".../components/layout";
+import { cn } from ".../lib/utils";
+import ".../styles/index.css";
+import ScrollToTop from "../components/common/scroll-to-top";
+import ScrollUp from "../components/common/scroll-up";
+import Meta from "./meta";
+
+const ThemeProvider = dynamic(() => import("../components/providers/next-theme"), { ssr: false });
+
+interface RootLayoutProps {
+	children: React.ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
+	return (
+		<html lang="en">
+			<head>
+				<Meta />
+			</head>
+			<body
+				className={cn(
+					"flex flex-col antialiased",
+					"min-h-screen ",
+					"scroll-smooth antialiased",
+					"scrollbar-gutter-stable scrollbar-gutter-both-edges",
+					"bg-white dark:bg-gray-950",
+					"text-gray-800 dark:text-gray-200",
+					"m-0 p-0",
+				)}>
+				<ScrollUp />
+				<ThemeProvider>
+					<BalancerProvider>
+						<Layout>{children}</Layout>
+					</BalancerProvider>
+				</ThemeProvider>
+				<ScrollToTop />
+				<Analytics />
+			</body>
+		</html>
+	);
+}

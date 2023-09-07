@@ -1,0 +1,27 @@
+@import url("typeface-nanum-square/nanumsquare.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::selection {
+	background-color: theme("colors.lime.600");
+	color: theme("colors.lime.300");
+}
+
+*,
+::before,
+::after {
+	border-width: 0px;
+	border-style: solid;
+	border-color: transparent;
+}
+@layer base {
+	html {
+		font-weight: 400;
+		font-family: "Nanum Square", sans-serif;
+	}
+	body {
+		background: theme("colors.zinc.100")
+		color: theme("colors.zinc.900")
+	}
+}

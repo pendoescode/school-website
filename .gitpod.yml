@@ -1,0 +1,20 @@
+tasks:
+    - name: Start development environment
+      init: pnpm install
+      command: pnpm run dev
+
+ports:
+    - port: 3000
+      name: Web App
+      description: The main application web server
+      onOpen: open-browser
+      visibility: public
+
+vscode:
+    extensions:
+        - EditorConfig.EditorConfig
+        - usernamehw.errorlens
+        - eamodio.gitlens
+        - esbenp.prettier-vscode
+        - yoavbls.pretty-ts-errors
+        - shardulm94.trailing-spaces
