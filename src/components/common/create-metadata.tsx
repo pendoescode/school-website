@@ -71,7 +71,6 @@ export function createMetadata({
 		metadata["twitter"]["card"] = "summary_large_image";
 
 		const url = pathName ? `${siteURL}/${pathName}` : `${siteURL}`;
-		console.log("url:", url);
 		if (url) {
 			metadata["alternates"] = {};
 			metadata["alternates"]["canonical"] = url;
