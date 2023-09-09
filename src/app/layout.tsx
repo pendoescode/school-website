@@ -25,8 +25,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
 			</head>
 			<body
 				className={cn(
-					"bg-zinc-50 dark:bg-zinc-950",
-					"text-zinc-800 dark:text-zinc-200",
+					"bg-zinc-50",
+					"text-zinc-800",
 					"flex flex-col",
 					"min-h-screen subpixel-antialiased",
 					"scroll-smooth",
