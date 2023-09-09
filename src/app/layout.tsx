@@ -25,12 +25,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
 			</head>
 			<body
 				className={cn(
-					"flex flex-col antialiased",
-					"min-h-screen ",
-					"scroll-smooth antialiased",
+					"bg-zinc-50 dark:bg-zinc-950",
+					"text-zinc-800 dark:text-zinc-200",
+					"flex flex-col",
+					"min-h-screen subpixel-antialiased",
+					"scroll-smooth",
 					"scrollbar-gutter-stable scrollbar-gutter-both-edges",
-					"bg-white dark:bg-gray-950",
-					"text-gray-800 dark:text-gray-200",
 					"m-0 p-0",
 				)}>
 				<ScrollUp />

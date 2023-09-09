@@ -1,51 +1,73 @@
-"use client";
-
-import { Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { navigationItems } from ".../config/menu-item";
 import { useWindowSize } from ".../hooks/use-window-size";
-import ThemeToggle from "../common/theme-toggle";
+import logo from ".../static/img/650x650.png";
+import { navigationItems } from "../../config/menu-item";
+import { Image } from "../core/image";
 
-const Header = () => {
-	const { innerWidth } = useWindowSize();
+const Navigation = () => {
+	const pathname = usePathname();
+	const windowSize = useWindowSize();
 
 	return (
-		<ul className="grid w-full grid-cols-3 items-center justify-between">
-			<li className="item-center order-2 flex w-full justify-center lg:order-1 lg:w-auto lg:justify-start">
-				<Link href="/">
-					<span className="text-2xl">Logo</span>
-				</Link>
-			</li>
-			<li className="fllex relative order-1 h-full w-max items-center rounded-[4px] bg-transparent p-2.5 text-gray-900 before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:rounded-[4px] before:bg-gray-50/75 before:backdrop-blur-sm dark:text-gray-200 dark:hover:text-gray-100 sm:p-3.5 lg:order-2 lg:hidden lg:bg-gray-100 lg:bg-opacity-60 lg:p-0">
-				<ul className="flex h-full items-center">
-					<li className="lg:hidden">
-						<button className="mt-0.5 flex flex-col gap-1.5 py-1.5">
-							<Menu />
-						</button>
-					</li>
-				</ul>
-			</li>
-			<li className="relative order-1 hidden w-max items-center gap-5 place-self-center rounded px-5 py-2.5 before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:rounded-[4px] before:backdrop-blur lg:flex lg:bg-gray-600 lg:bg-opacity-[0.35]">
-				{navigationItems.map((item, index) => {
-					const pathname = usePathname();
-					const isActive = pathname === item.href;
-					return (
-						<Link
-							href={item.href as any}
-							className="flex items-center gap-2 dark:text-gray-200 dark:hover:text-gray-100 "
-							passHref>
-							{isActive ? <span>{item.text}</span> : <span>{item.text}</span>}
+		<nav className="flex h-[200px] w-screen items-center border-y border-zinc-700 bg-zinc-100 px-7 py-0 lg:pr-7">
+			<div className="sr-only absolute left-0 top-0 z-[30] flex h-screen w-[320px] items-center">
+				<div className="flex flex-col space-x-4">
+					{navigationItems.map((item) => {
+						const isActive = pathname === item.href;
+						return (
+							<Link
+								href={item.href as any}
+								key={item.text}
+								className={`${
+									isActive
+										? "bg-gray-900 text-white"
+										: "text-gray-300 hover:bg-gray-700 hover:text-white"
+								} rounded-md px-3 py-2 text-sm font-medium`}>
+								{item.text}
+							</Link>
+						);
+					})}
+				</div>
+			</div>
+			<div className="flex h-full w-full flex-col items-center">
+				<div className="flex w-full grow justify-between border-b border-zinc-400">
+					<div className="flex h-full items-center justify-center gap-2">
+						<Link href={"/"}>
+							<Image src={logo.src} alt="Logo" width={48} height={48} />
 						</Link>
-					);
-				})}
-			</li>
-			<li className="order-3 shrink-0 justify-self-end lg:flex">
-				{/* <span className="font-mono text-xs text-gray-500">{new Date().getFullYear()}</span> */}
-				<ThemeToggle />
-			</li>
-		</ul>
+						<div className="flex h-[48px] flex-col overflow-hidden">
+							<h1 className="font-noto text-xl leading-tight text-zinc-900">GOLDENSTATE COLLEGE</h1>
+							<span>General Santos and Koronadal</span>
+						</div>
+					</div>
+				</div>
+				<div className="flex h-[64px] w-full flex-row items-center justify-start gap-4">
+					<div className="flex grow flex-row items-center justify-evenly gap-4">
+						<Link className="rounded border-b-4 px-7 py-4 hover:bg-yellow-300" href={"/"}>
+							Home
+						</Link>
+						<Link className="rounded border-b-4 px-7 py-4 hover:border-yellow-300" href={"/"}>
+							About Us
+						</Link>
+						<Link className="rounded border-b-4 px-7 py-4 hover:border-yellow-300" href={"/"}>
+							Academics
+						</Link>
+						<Link className="rounded border-b-4 px-7 py-4 hover:border-yellow-300" href={"/"}>
+							Admission
+						</Link>
+						<Link className="rounded border-b-4 px-7 py-4 hover:border-yellow-300" href={"/"}>
+							Campus
+						</Link>
+						<Link className="rounded px-7 py-4" href={"/"}>
+							News
+						</Link>
+					</div>
+				</div>
+			</div>
+		</nav>
 	);
 };
-export default Header;
+
+export default Navigation;

@@ -1,11 +1,11 @@
-@import url("typeface-nanum-square/nanumsquare.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-::selection {
-	background-color: theme("colors.lime.600");
-	color: theme("colors.lime.300");
+::selection:not(img) {
+	background-color: theme("colors.yellow.400");
+	color: theme("colors.zinc.950");
 }
 
 *,
@@ -17,11 +17,17 @@
 }
 @layer base {
 	html {
-		font-weight: 400;
-		font-family: "Nanum Square", sans-serif;
+		font-family: "Inter", sans-serif;
 	}
 	body {
-		background: theme("colors.zinc.100")
-		color: theme("colors.zinc.900")
+		background: theme("colors.zinc.950");
+		color: theme("colors.zinc.100");
+	}
+
+	h1,
+	h2,
+	h3 {
+		font-family: "Nunito Sans", sans-serif;
+		font-weight: 700;
 	}
 }

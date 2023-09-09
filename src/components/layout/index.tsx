@@ -10,9 +10,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
 	return (
 		<div className={cn("flex h-screen flex-col")}>
-			<header
-				id="header"
-				className={cn("absolute top-0 z-30 flex h-24 w-full items-center justify-center px-5 lg:px-10 ")}>
+			<header className={cn("absolute top-0 z-20 flex w-full")}>
 				<Header />
 			</header>
 			<main className={cn("flex-grow sm:p-6")}>

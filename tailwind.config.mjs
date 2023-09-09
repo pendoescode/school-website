@@ -1,6 +1,5 @@
 import typography from "@tailwindcss/typography";
 import { scrollbarColor, scrollbarGutter, scrollbarWidth } from "tailwind-scrollbar-utilities";
-import defaultTheme from "tailwindcss/defaultTheme";
 
 /**
  * @template {import('tailwindcss').Config} T
@@ -86,13 +85,8 @@ module.exports = defineTailwindConfig({
 					100: "#f9b039",
 					200: "#ed2d33",
 					300: "#011fa9",
-				}
+				},
 			},
-		},
-		fontFamily: {
-			mono: ["var(--font-mono)", ...defaultTheme.fontFamily.mono],
-			noto: ["var(--font-noto)", ...defaultTheme.fontFamily.noto],
-			pt: ["var(--font-pt)", ...defaultTheme.fontFamily.pt],
 		},
 	},
 	future: {
